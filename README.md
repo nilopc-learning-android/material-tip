@@ -7,7 +7,7 @@ Android Library for prompt tip ( according to [offer education](https://www.goog
 
 # Sample
 
-![](https://raw.githubusercontent.com/fcannizzaro/material-tip/master/sample.gif)
+![](https://raw.githubusercontent.com/fcannizzaro/material-tip/master/preview.gif)
 
 # How to include
 
