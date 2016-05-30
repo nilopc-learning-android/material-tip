@@ -1,6 +1,18 @@
 # material-tip
 Android Library for prompt tip ( according to [offer education](https://www.google.com/design/spec/growth-communications/onboarding.html#onboarding-quickstart) )
 
+<!--
+  GIT-CARD (Test for https://github.com/fcannizzaro/git-card/)
+  title: Material Tip
+  description: Android Library for prompt tip
+  clone: true
+  fork: true
+  cover: http://assets.materialup.com/uploads/262247a3-7928-4cb5-bd82-a67bd8b1f9b4/preview.png
+  color: #009688
+  counter.star: true
+  counter.fork: true
+  -->
+  
 [![](https://jitpack.io/v/fcannizzaro/material-tip.svg)](https://jitpack.io/#fcannizzaro/material-tip)
 [![Build Status](https://travis-ci.org/fcannizzaro/material-tip.svg?branch=master)](https://travis-ci.org/fcannizzaro/material-tip)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-material--tip-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3648)
