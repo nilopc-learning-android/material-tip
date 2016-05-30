@@ -2,7 +2,7 @@
 Android Library for prompt tip ( according to [offer education](https://www.google.com/design/spec/growth-communications/onboarding.html#onboarding-quickstart) )
 
 <!--
-  GIT-CARD (Test for https://github.com/fcannizzaro/git-card/)
+  GIT-CARD
   title: Material Tip
   description: Android Library for prompt tip
   clone: true
