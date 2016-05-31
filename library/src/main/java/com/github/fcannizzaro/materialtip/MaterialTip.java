@@ -55,18 +55,24 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
         try {
 
+            String positiveStr = array.getString(R.styleable.MaterialTip_tip_positive);
+            String negativeStr = array.getString(R.styleable.MaterialTip_tip_negative);
+
             color = array.getColor(R.styleable.MaterialTip_tip_color, ContextCompat.getColor(context, R.color.colorPrimary));
             background = array.getColor(R.styleable.MaterialTip_tip_background, ContextCompat.getColor(context, R.color.tip_background));
             titleColor = array.getColor(R.styleable.MaterialTip_tip_title_color, ContextCompat.getColor(context, R.color.tip_title));
             textColor = array.getColor(R.styleable.MaterialTip_tip_text_color, ContextCompat.getColor(context, R.color.tip_text));
             title.setText(array.getString(R.styleable.MaterialTip_tip_title));
             text.setText(array.getString(R.styleable.MaterialTip_tip_text));
-            positive.setText(array.getString(R.styleable.MaterialTip_tip_positive));
-            negative.setText(array.getString(R.styleable.MaterialTip_tip_negative));
+            positive.setText(positiveStr);
+            negative.setText(negativeStr);
             title.setVisibility(array.getBoolean(R.styleable.MaterialTip_tip_title_visible, true) ? VISIBLE : GONE);
             icon.setImageDrawable(array.getDrawable(R.styleable.MaterialTip_tip_icon));
 
-            color();
+
+            checkColor();
+            checkButtonsVisibility();
+            checkIconVisibility();
 
         } finally {
             array.recycle();
@@ -127,6 +133,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withIcon(Drawable icon) {
         this.icon.setImageDrawable(icon);
+        checkIconVisibility();
         return this;
     }
 
@@ -137,40 +144,43 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withPositive(String positive) {
         this.positive.setText(positive);
+        checkButtonsVisibility();
         return this;
     }
 
     public MaterialTip withNegative(String negative) {
         this.negative.setText(negative);
+        checkButtonsVisibility();
         return this;
     }
 
     public MaterialTip withIconRes(@DrawableRes int icon) {
         this.icon.setImageResource(icon);
+        checkIconVisibility();
         return this;
     }
 
     public MaterialTip withColor(@ColorInt int color) {
         this.color = color;
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withBackground(@ColorInt int background) {
         this.background = background;
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withTitleColor(@ColorInt int titleColor) {
         this.titleColor = titleColor;
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withTextColor(@ColorInt int textColor) {
         this.textColor = textColor;
-        color();
+        checkColor();
         return this;
     }
 
@@ -178,25 +188,25 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withColorRes(@ColorRes int color) {
         this.color = ContextCompat.getColor(context, color);
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withTextColorRes(@ColorRes int textColor) {
         this.textColor = ContextCompat.getColor(context, textColor);
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withTitleColorRes(@ColorRes int titleColor) {
         this.titleColor = ContextCompat.getColor(context, titleColor);
-        color();
+        checkColor();
         return this;
     }
 
     public MaterialTip withBackgroundRes(@ColorRes int background) {
         this.background = ContextCompat.getColor(context, background);
-        color();
+        checkColor();
         return this;
     }
 
@@ -212,11 +222,13 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withPositiveRes(@StringRes int positive) {
         this.positive.setText(context.getText(positive));
+        checkButtonsVisibility();
         return this;
     }
 
     public MaterialTip withNegativeRes(@StringRes int negative) {
         this.negative.setText(context.getText(negative));
+        checkButtonsVisibility();
         return this;
     }
 
@@ -256,7 +268,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
             show();
     }
 
-    private void color() {
+    private void checkColor() {
 
         // text color
         title.setTextColor(titleColor);
@@ -267,6 +279,15 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
         tip.setBackgroundColor(background);
         negative.setBackgroundColor(background);
         positive.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
+    }
+
+    private void checkButtonsVisibility() {
+        positive.setVisibility(positive.getText().toString().isEmpty() ? GONE : VISIBLE);
+        negative.setVisibility(negative.getText().toString().isEmpty() ? GONE : VISIBLE);
+    }
+
+    private void checkIconVisibility() {
+        icon.setVisibility(icon.getDrawable() == null ? GONE : VISIBLE);
     }
 
     public boolean isVisible() {

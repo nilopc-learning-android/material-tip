@@ -30,15 +30,19 @@
         android:id="@+id/tip.top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:paddingTop="10dp"
+        android:paddingLeft="16dp"
+        android:paddingBottom="16dp"
+        android:paddingRight="16dp">
 
         <ImageView
             android:id="@+id/tip.icon"
             android:layout_width="36dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="8dp"
+            android:layout_marginRight="24dp"
             android:adjustViewBounds="true"
-            android:scaleType="fitCenter"/>
+            android:scaleType="fitCenter"
+            android:visibility="gone"/>
 
         <TextView
             android:id="@+id/tip.text"
@@ -48,8 +52,6 @@
             android:layout_toRightOf="@+id/tip.icon"
             android:fontFamily="sans-serif"
             android:lineSpacingExtra="2dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
             android:textColor="@color/tip_text"
             android:textSize="@dimen/tip_text"/>
 
@@ -63,12 +65,14 @@
 
         <Button
             android:id="@+id/tip.negative"
-            style="@style/TipButton"/>
+            style="@style/TipButton"
+            android:visibility="gone"/>
 
         <Button
             android:id="@+id/tip.positive"
             style="@style/TipButton"
-            android:layout_marginRight="16dp"/>
+            android:layout_marginRight="16dp"
+            android:visibility="gone"/>
 
     </LinearLayout>
 
