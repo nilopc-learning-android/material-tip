@@ -39,7 +39,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    compile 'com.github.fcannizzaro:material-tip:1.0.3'
+    compile 'com.github.fcannizzaro:material-tip:1.0.5'
 }
 ```
 
@@ -72,8 +72,7 @@ dependencies {
 			app:tip_negative="string"
 			app:tip_positive="string"
 			app:tip_text="string"
-			app:tip_title="string"
-			app:tip_title_visible="boolean"/>
+			app:tip_title="string"/>
 
 </android.support.design.widget.CoordinatorLayout>
 ```
@@ -98,9 +97,6 @@ new ButtonListener() {
 
 }
 ```
-
-### withTitleVisible(Boolean)
-Set title visibility
 
 ### withTitle(String)
 Set tip title

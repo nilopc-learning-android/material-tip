@@ -66,7 +66,6 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
             text.setText(array.getString(R.styleable.MaterialTip_tip_text));
             positive.setText(positiveStr);
             negative.setText(negativeStr);
-            title.setVisibility(array.getBoolean(R.styleable.MaterialTip_tip_title_visible, true) ? VISIBLE : GONE);
             icon.setImageDrawable(array.getDrawable(R.styleable.MaterialTip_tip_icon));
 
 
@@ -121,6 +120,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     // direct
 
+    @Deprecated
     public MaterialTip withTitleVisible(boolean titleVisible) {
         this.title.setVisibility(titleVisible ? VISIBLE : GONE);
         return this;
@@ -128,6 +128,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withTitle(String title) {
         this.title.setText(title);
+        checkButtonsVisibility();
         return this;
     }
 
@@ -212,6 +213,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
     public MaterialTip withTitleRes(@StringRes int title) {
         this.title.setText(context.getText(title));
+        checkButtonsVisibility();
         return this;
     }
 
@@ -284,6 +286,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
     private void checkButtonsVisibility() {
         positive.setVisibility(positive.getText().toString().isEmpty() ? GONE : VISIBLE);
         negative.setVisibility(negative.getText().toString().isEmpty() ? GONE : VISIBLE);
+        title.setVisibility(title.getText().toString().isEmpty() ? GONE : VISIBLE);
     }
 
     private void checkIconVisibility() {

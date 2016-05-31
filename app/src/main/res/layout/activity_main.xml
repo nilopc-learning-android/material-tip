@@ -47,8 +47,7 @@
             app:tip_negative="@string/tip_negative"
             app:tip_positive="@string/tip_positive"
             app:tip_text="@string/tip_description"
-            app:tip_title="@string/tip_title"
-            app:tip_title_visible="true"/>
+            app:tip_title="@string/tip_title"/>
 
     </android.support.design.widget.CoordinatorLayout>
 

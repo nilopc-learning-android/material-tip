@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         final MaterialTip tip = (MaterialTip) findViewById(R.id.tip);
 
         tip
-                .withTitleRes(R.string.tip_title)
                 .withTextRes(R.string.tip_description)
                 .withBackgroundRes(R.color.tip_background)
                 .withTextColorRes(R.color.tip_text)
