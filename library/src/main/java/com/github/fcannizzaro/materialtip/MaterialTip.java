@@ -10,6 +10,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.StringRes;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 
 import com.github.fcannizzaro.materialtip.util.AnimationAdapter;
 import com.github.fcannizzaro.materialtip.util.ButtonListener;
+import com.github.fcannizzaro.materialtip.util.InternalBehavior;
 
 /**
  * Francesco Cannizzaro (fcannizzaro)
@@ -97,6 +99,12 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
         waitHeight();
 
+    }
+
+    private void applyBehaviour() {
+        CoordinatorLayout.LayoutParams paramsFab = (CoordinatorLayout.LayoutParams) getLayoutParams();
+        paramsFab.setBehavior(new InternalBehavior(context, null));
+        requestLayout();
     }
 
     // Builder Methods
@@ -261,6 +269,10 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
         positive.getBackground().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
     }
 
+    public boolean isVisible() {
+        return visible;
+    }
+
     @Override
     public void onClick(View v) {
 
@@ -318,6 +330,7 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
 
                 MIN_DISTANCE = getHeight() / 4;
                 setTranslationY(getHeight());
+                applyBehaviour();
 
             }
         });
