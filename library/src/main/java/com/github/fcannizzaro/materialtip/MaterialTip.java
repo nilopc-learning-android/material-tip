@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
@@ -14,6 +15,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -92,6 +94,8 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
         tip.setOnTouchListener(this);
         positive.setOnClickListener(this);
         negative.setOnClickListener(this);
+
+        waitHeight();
 
     }
 
@@ -299,9 +303,24 @@ public class MaterialTip extends RelativeLayout implements View.OnClickListener,
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-        MIN_DISTANCE = getHeight() / 4;
-        setTranslationY(getHeight());
+
     }
 
+    public void waitHeight() {
+
+        getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            public void onGlobalLayout() {
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+                    getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                else
+                    getViewTreeObserver().removeGlobalOnLayoutListener(this);
+
+                MIN_DISTANCE = getHeight() / 4;
+                setTranslationY(getHeight());
+
+            }
+        });
+    }
 
 }

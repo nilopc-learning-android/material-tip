@@ -39,7 +39,7 @@ allprojects {
 
 ```gradle
 dependencies {
-    compile 'com.github.fcannizzaro:material-tip:1.0.1'
+    compile 'com.github.fcannizzaro:material-tip:1.0.2'
 }
 ```
 
