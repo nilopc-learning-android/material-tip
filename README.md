@@ -4,13 +4,8 @@ Android Library for prompt tip ( according to [offer education](https://www.goog
 <!--
   GIT-CARD
   title: Material Tip
-  description: Android Library for prompt tip
-  clone: true
-  fork: true
-  cover: http://assets.materialup.com/uploads/262247a3-7928-4cb5-bd82-a67bd8b1f9b4/preview.png
+  cover: https://dl.dropboxusercontent.com/u/73317452/dev/material_tip.png
   color: #009688
-  counter.star: true
-  counter.fork: true
   -->
   
 [![](https://jitpack.io/v/fcannizzaro/material-tip.svg)](https://jitpack.io/#fcannizzaro/material-tip)
