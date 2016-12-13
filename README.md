@@ -11,11 +11,11 @@ Android Library for prompt tip ( according to [offer education](https://www.goog
 [![](https://jitpack.io/v/fcannizzaro/material-tip.svg)](https://jitpack.io/#fcannizzaro/material-tip)
 [![Build Status](https://travis-ci.org/fcannizzaro/material-tip.svg?branch=master)](https://travis-ci.org/fcannizzaro/material-tip)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-material--tip-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3648)
-[![git-card](http://goo.gl/2TUzYL)](http://fcannizzaro.github.io/git-card/get?user=fcannizzaro&repo=material-tip)
+[![git-card](http://goo.gl/2TUzYL)](http://nilopc-learning-android.github.io/git-card/get?user=fcannizzaro&repo=material-tip)
 
 # Sample
 
-![](https://raw.githubusercontent.com/fcannizzaro/material-tip/master/preview.gif)
+![](https://raw.githubusercontent.com/nilopc-learning-android/material-tip/master/preview.gif)
 
 # How to include
 
